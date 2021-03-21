@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* === Nomalize CSS === */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
+
+/* === Reset CSS === */
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+table {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+header,
+main,
+footer,
+section,
+article,
+aside,
+nav {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a img {
+  border: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i,
+cite {
+  font-style: normal;
+}
+button {
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+fieldset {
+  border: none;
+}
+/* === 기본스타일 === */
+html {
+  font-size: 10px;
+}
+
+body {
+  min-width: 320px;
+  font-size: 1.6rem;
+}
+
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+/* === 스킵네비게이션 === */
+.skip-nav a {
+  position: fixed;
+  top: -100%;
+  z-index: 9999;
+  display: block;
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  background: #14182c;
+}
+
+.skip-nav a:focus {
+  top: 0;
+}
