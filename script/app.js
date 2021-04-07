@@ -1,6 +1,8 @@
-const app = () => {
-  const $main = document.querySelector('main');
-  const $mainBg = document.querySelector('.main-bg');
+const $main = document.querySelector('main');
+const $mainBg = document.querySelector('.main-bg');
+const $body = document.querySelector('body');
+
+const mainBg = () => {
   let startX = 0;
   let startY = 0;
   let bgPosX = 0;
@@ -35,56 +37,81 @@ const app = () => {
     $mainBg.style.top = `${bgPosY}px`;
     $mainBg.style.left = `${bgPosX}px`;
   };
-};
-app();
+}; mainBg();
 
-const $body = document.querySelector('body');
+
 const $sections = document.querySelectorAll('.common-group');
+const sectionsOffsetTop = Array.from($sections).map((v) => {
+  return v.offsetTop;
+})
 
 const windowHeight = window.innerHeight;
+let moveScroll = 0;
 
 let scrollTopDefault = 0;
 let scrollPage = 1;
 // console.log($sections);
 
+let oldValue = 0;
 const moveSection = (e) => {
   let { scrollTop } = e.target.scrollingElement;
+  const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  
+  
+  
 
-  $sections.forEach((section, index) => {
-    if (
-      $sections[index].offsetTop < scrollTop &&
-      $sections[index + 1].offsetTop > scrollTop
-    ) {
-      $sections[index + 1].classList.add('on');
-    } else {
-      $sections[index + 1].classList.remove('on');
+  // scroll down
+  if (oldValue - newValue < 0) {  
+    console.log('scroll down');
+    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+        console.log(sectionsOffsetTop[i]);
+        window.scrollTo({
+          top: sectionsOffsetTop[i + 1],
+          left: 0,
+          behavior: "smooth"
+        })
+      }
     }
+  } 
+  // scroll top
+  if(oldValue - newValue > 0) { 
+    console.log('scroll up');
+    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+        console.log(sectionsOffsetTop[i]);
+        window.scrollTo({
+          top: sectionsOffsetTop[i],
+          left: 0,
+          behavior: "smooth"
+        })
+      }
+    }
+  }
 
-    
-    if (section.classList.contains('on')) {
-      console.log('asd');
-      
-      
-      window.scrollTo({
-        // top: section.offsetTop,
-        top: windowHeight * index,
-        left: 0,
-        behavior: 'smooth'
-      })
-    }
-  });
+  oldValue = newValue;
+  // console.log('oldValue',oldValue);
+  // console.log('newValue',newValue);
+  
+  /**
+   * 스크롤이 1 ~ 2일때, 2 ~3 일때, 3~4일때 
+   */
 
   
 };
 
+
 const debounce = (func) => {
   let timer;
+  
 
   return (...args) => {
     // console.log('func', func); // func (e) => moveSection(e)
     // console.log('args', args); // args [Event]
     if (!timer) {
       func.apply(this, args);
+      // console.log(newValue);
+
     }
 
     clearTimeout(timer);
