@@ -10,14 +10,14 @@
       content="박민지 | 프론트엔드 개발자 포트폴리오"
     />
     <title>박민지 | 프론트엔드 개발자 포트폴리오</title>
-    <meta name="description" content="Welcome to Pause." />
+    <meta name="description" content="안녕하세요. 프론트엔드 개발자 박민지 포트폴리오 입니다." />
     <meta
       name="keywords"
       content="프론트엔드 개발자, 프론트엔드 주니어 개발자, 프론트엔드 주니어 개발자 포트폴리오, 웹개발, 프론트엔드"
     />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="프론트엔드 개발자 박민지 포트폴리오"" />
+    <meta property="og:title" content="프론트엔드 개발자 박민지 포트폴리오" />
     <meta
       property="og:description"
       content="안녕하세요. 프론트엔드 개발자 박민지 포트폴리오 입니다."
@@ -33,7 +33,6 @@
     <script src="./script/app.js" defer></script>
   </head>
   <body>
-    <header>헤더</header>
     <main class="common-group">
       <img src="./images/lilac-bg.jpg" class="main-bg" alt="" />
       <div class="main-bg-smoke-wrap">
@@ -48,15 +47,27 @@
       <button class="main-btn">
         <img src="./images/lilac-icon.png" alt="아래로 이동" />
       </button>
+      <nav class="menu-wrap">
+        <h2 class="a11y-hidden">메뉴</h2>
+        <ul>
+          <li><a href="#introduce-wrap" class="menu-link">introduce</a></li>
+          <li><a href="#skills-wrap" class="menu-link">skills</a></li>
+          <li><a href="#works-wrap" class="menu-link">works</a></li>
+          <li><a href="#experience-wrap" class="menu-link">experience</a></li>
+        </ul>
+      </nav>
     </main>
-    <section class="skills-wrap common-group">
+    <section class="introduce-wrap common-group" id="introduce-wrap">
+      <h2>Introduce</h2>
+    </section>
+    <section class="skills-wrap common-group" id="skills-wrap">
       <h2>Skills</h2>
     </section>
-    <section class="works-wrap common-group">
+    <section class="works-wrap common-group" id="works-wrap">
       <h2>Works</h2>
     </section>
-    <section class="last-wrap common-group">
-      <p>감사합니다.</p>
+    <section class="experience-wrap common-group" id="experience-wrap">
+      <h2>experience</h2>
     </section>
     <footer class="common-group">
       Footer

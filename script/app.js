@@ -54,48 +54,39 @@ let scrollPage = 1;
 
 let oldValue = 0;
 const moveSection = (e) => {
-  let { scrollTop } = e.target.scrollingElement;
-  const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  
-  
-  
+  // let { scrollTop } = e.target.scrollingElement;
+  // const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
   // scroll down
-  if (oldValue - newValue < 0) {  
-    console.log('scroll down');
-    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-        console.log(sectionsOffsetTop[i]);
-        window.scrollTo({
-          top: sectionsOffsetTop[i + 1],
-          left: 0,
-          behavior: "smooth"
-        })
-      }
-    }
-  } 
+  // if (oldValue - newValue < 0) {  
+  //   console.log('scroll down');
+  //   for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+  //     if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+  //       console.log(sectionsOffsetTop[i]);
+  //       window.scrollTo({
+  //         top: sectionsOffsetTop[i + 1],
+  //         left: 0,
+  //         behavior: "smooth"
+  //       })
+  //     }
+  //   }
+  // } 
   // scroll top
-  if(oldValue - newValue > 0) { 
-    console.log('scroll up');
-    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-        console.log(sectionsOffsetTop[i]);
-        window.scrollTo({
-          top: sectionsOffsetTop[i],
-          left: 0,
-          behavior: "smooth"
-        })
-      }
-    }
-  }
+  // if(oldValue - newValue > 0) { 
+  //   console.log('scroll up');
+  //   for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+  //     if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+  //       console.log(sectionsOffsetTop[i]);
+  //       window.scrollTo({
+  //         top: sectionsOffsetTop[i],
+  //         left: 0,
+  //         behavior: "smooth"
+  //       })
+  //     }
+  //   }
+  // }
 
-  oldValue = newValue;
-  // console.log('oldValue',oldValue);
-  // console.log('newValue',newValue);
-  
-  /**
-   * 스크롤이 1 ~ 2일때, 2 ~3 일때, 3~4일때 
-   */
+  // oldValue = newValue;
 
   
 };
@@ -117,10 +108,25 @@ const debounce = (func) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       timer = undefined;
-    }, 500);
+    }, 100);
   };
 };
 
 const process = debounce((e) => moveSection(e));
 
 document.addEventListener('scroll', process);
+
+const $menuWrap = document.querySelector('.menu-wrap');
+$menuWrap.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains('menu-link')) {
+    
+    const sectionId = e.target.getAttribute('href');
+    const section = document.querySelector(sectionId);
+    window.scrollTo({
+      top: section.offsetTop,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
+});
