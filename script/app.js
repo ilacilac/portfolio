@@ -37,13 +37,13 @@ const mainBg = () => {
     $mainBg.style.top = `${bgPosY}px`;
     $mainBg.style.left = `${bgPosX}px`;
   };
-}; mainBg();
-
+};
+mainBg();
 
 const $sections = document.querySelectorAll('.common-group');
 const sectionsOffsetTop = Array.from($sections).map((v) => {
-  return v.offsetTop / 2;
-})
+  return v.offsetTop;
+});
 
 const windowHeight = window.innerHeight;
 let moveScroll = 0;
@@ -55,28 +55,35 @@ let scrollPage = 1;
 let oldValue = 0;
 const moveSection = (e) => {
   let { scrollTop } = e.target.scrollingElement;
-  const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  const newValue =
+    window.scrollY ||
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop;
 
   // scroll down
-  if (oldValue - newValue < 0) {  
+  if (oldValue - newValue < 0) {
     console.log('scroll down');
-    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-        console.log(sectionsOffsetTop[i] / 2);
-        // window.scrollTo({
-        //   top: sectionsOffsetTop[i + 1],
-        //   left: 0,
-        //   behavior: "smooth"
-        // })
+    for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (
+        sectionsOffsetTop[i] <= scrollTop &&
+        sectionsOffsetTop[i + 1] >= scrollTop
+      ) {
+        console.log(i);
+        $sections[i].classList.add('active');
+      } else {
+        $sections[i].classList.remove('active');
       }
     }
-  } 
+  }
   // scroll top
-  if(oldValue - newValue > 0) { 
+  if (oldValue - newValue > 0) {
     console.log('scroll up');
-    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-        console.log(sectionsOffsetTop[i]);
+    for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (
+        sectionsOffsetTop[i] <= scrollTop &&
+        sectionsOffsetTop[i + 1] >= scrollTop
+      ) {
         // window.scrollTo({
         //   top: sectionsOffsetTop[i],
         //   left: 0,
@@ -87,14 +94,10 @@ const moveSection = (e) => {
   }
 
   oldValue = newValue;
-
-  
 };
-
 
 const debounce = (func) => {
   let timer;
-  
 
   return (...args) => {
     // console.log('func', func); // func (e) => moveSection(e)
@@ -102,7 +105,6 @@ const debounce = (func) => {
     if (!timer) {
       func.apply(this, args);
       // console.log(newValue);
-
     }
 
     clearTimeout(timer);
@@ -121,49 +123,42 @@ const $menuWrap = document.querySelector('.menu-wrap');
 $menuWrap.addEventListener('click', (e) => {
   e.preventDefault();
   if (e.target.classList.contains('menu-link')) {
-    
     const sectionId = e.target.getAttribute('href');
     const section = document.querySelector(sectionId);
     window.scrollTo({
       top: section.offsetTop,
       left: 0,
-      behavior: "smooth"
-    })
+      behavior: 'smooth',
+    });
   }
 });
-
 
 // TEST CODE
 // const mainKeywordArray = $mainKeyword.textContent.split('');
 // let keyword = [];
 // mainKeywordArray.forEach((_keyword, index) => {
-  
 
-    
 //     // console.log(_keyword);
-    
+
 //     // $mainKeyword.innerHTML += `<span>${_keyword[index]}</span>`;
-  
+
 // })
-
-
 
 // for (let i = 0; i < mainKeywordArray.length; i++) {
 //   let spell = mainKeywordArray[i].split('');
 //   let word = [];
 //   let count = 0;
-  
+
 //   for (let j = 0; j < spell.length; j++) {
 //     // console.log(spell);
-    
+
 //     // setTimeout(()=>{
 //     //   $mainKeyword.innerHTML += `<span>${mainKeywordArray[i][j]}</span>`;
 //     // },1000)
 //     // word += mainKeywordArray[i][j];
-    
-    
+
 //     word = mainKeywordArray[i].split('');
-    
+
 //     // console.log(word);
 //   }
 //   // setInterval(() => {
@@ -175,52 +170,45 @@ $menuWrap.addEventListener('click', (e) => {
 
 // Main Keywords animation
 const $mainKeyword = document.querySelector('.main-keyword');
-const mainKeywordArray = ['깊이 생각하는', '문서화를 좋아하는', '끈기있게 탐구하는']
+const mainKeywordArray = [
+  '깊이 생각하는',
+  '끈기있게 탐구하는',
+  '문서화를 좋아하는',
+];
 
-let keywordCount = 0;
-let keywordTyping = false;
-
-// console.log(mainKeywordArray.length);
-
-const keywordAnimation = async(loopCount = 0) => {
+const keywordAnimation = async (loopCount = 0) => {
   let textSplit = [];
-  // let loopCount = 0;
-  
+  let count = 0;
+
   textSplit = mainKeywordArray.map((v) => {
     return v.split('');
   });
-  
 
-    
-    let count = 0;
-    while (loopCount !== textSplit.length && count < textSplit[loopCount].length) {      
-        await delayletter();
-        
-        $mainKeyword.append(textSplit[loopCount][count]);
+  while (
+    loopCount !== textSplit.length &&
+    count < textSplit[loopCount].length
+  ) {
+    await delayletter();
 
-        if (count  === textSplit[loopCount].length - 1) {
-          await delayWord();
-          textSplit.length - 1 === loopCount ? keywordAnimation(loopCount = 0) : keywordAnimation(loopCount + 1);  
-          $mainKeyword.textContent = '';
-          return false;
-        }
+    $mainKeyword.append(textSplit[loopCount][count]);
 
-        count++;
-    } 
-  
-}
+    if (count === textSplit[loopCount].length - 1) {
+      await delayWord();
+      textSplit.length - 1 === loopCount
+        ? keywordAnimation((loopCount = 0))
+        : keywordAnimation(loopCount + 1);
+      $mainKeyword.textContent = '';
+      return false;
+    }
+
+    count++;
+  }
+};
+
 const delayletter = () => {
-  return new Promise(resolve => setTimeout((resolve), 200))
-}
+  return new Promise((resolve) => setTimeout(resolve, 200));
+};
 const delayWord = () => {
-  return new Promise(resolve => setTimeout((resolve), 1000))
-}
+  return new Promise((resolve) => setTimeout(resolve, 1000));
+};
 keywordAnimation();
-
-if (!keywordTyping) {
-  keywordTyping = true;
-  // let keywordTimer = setInterval(keywordAnimation, 1000);
-}
-
-
-

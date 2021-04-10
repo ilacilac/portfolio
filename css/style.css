@@ -43,6 +43,7 @@ main h1 {
   text-shadow: 0 0 40px #e3d0eb;
   opacity: 0;
   line-height: 1.4;
+  text-align: left;
   -webkit-animation: 0.5s linear 0.5s forwards main-text;
           animation: 0.5s linear 0.5s forwards main-text;
 }
@@ -97,7 +98,8 @@ main .main-keyword {
   position: fixed;
   right: 0;
   z-index: 100;
-  height: 100vh;
+  height: 50vh;
+  border-radius: 50px;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.8);
 }
@@ -136,9 +138,45 @@ main .main-keyword {
 
 /* === Common group === */
 .common-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   height: 100vh;
+  text-align: center;
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+.common-group h2 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.common-group h2 span {
+  display: inline-block;
+}
+
+.common-group h2 span::after {
+  content: '';
+  display: inline-block;
+  width: 80%;
+  height: 2px;
+  margin: 25px auto 0px;
+  background: #a28ec9;
+}
+
+/* === Introduce === */
+.introduce-wrap > div {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.introduce-wrap .introduce-text {
+  text-align: left;
 }
 
 /* === Animations === */
