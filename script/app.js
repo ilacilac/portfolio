@@ -116,6 +116,7 @@ const process = debounce((e) => moveSection(e));
 
 document.addEventListener('scroll', process);
 
+// Menu Scroll Event
 const $menuWrap = document.querySelector('.menu-wrap');
 $menuWrap.addEventListener('click', (e) => {
   e.preventDefault();
@@ -130,3 +131,96 @@ $menuWrap.addEventListener('click', (e) => {
     })
   }
 });
+
+
+// TEST CODE
+// const mainKeywordArray = $mainKeyword.textContent.split('');
+// let keyword = [];
+// mainKeywordArray.forEach((_keyword, index) => {
+  
+
+    
+//     // console.log(_keyword);
+    
+//     // $mainKeyword.innerHTML += `<span>${_keyword[index]}</span>`;
+  
+// })
+
+
+
+// for (let i = 0; i < mainKeywordArray.length; i++) {
+//   let spell = mainKeywordArray[i].split('');
+//   let word = [];
+//   let count = 0;
+  
+//   for (let j = 0; j < spell.length; j++) {
+//     // console.log(spell);
+    
+//     // setTimeout(()=>{
+//     //   $mainKeyword.innerHTML += `<span>${mainKeywordArray[i][j]}</span>`;
+//     // },1000)
+//     // word += mainKeywordArray[i][j];
+    
+    
+//     word = mainKeywordArray[i].split('');
+    
+//     // console.log(word);
+//   }
+//   // setInterval(() => {
+//   //   console.log(mainKeywordArray[i]);
+//   // }, 1000)
+//   // console.log(mainKeywordArray[i]);
+//   let test = [];
+// }
+
+// Main Keywords animation
+const $mainKeyword = document.querySelector('.main-keyword');
+const mainKeywordArray = ['깊이 생각하는', '문서화를 좋아하는', '끈기있게 탐구하는']
+
+let keywordCount = 0;
+let keywordTyping = false;
+
+// console.log(mainKeywordArray.length);
+
+const keywordAnimation = async(loopCount = 0) => {
+  let textSplit = [];
+  // let loopCount = 0;
+  
+  textSplit = mainKeywordArray.map((v) => {
+    return v.split('');
+  });
+  
+
+    
+    let count = 0;
+    while (loopCount !== textSplit.length && count < textSplit[loopCount].length) {      
+        await delayletter();
+        
+        $mainKeyword.append(textSplit[loopCount][count]);
+
+        if (count  === textSplit[loopCount].length - 1) {
+          await delayWord();
+          textSplit.length - 1 === loopCount ? keywordAnimation(loopCount = 0) : keywordAnimation(loopCount + 1);  
+          $mainKeyword.textContent = '';
+          return false;
+        }
+
+        count++;
+    } 
+  
+}
+const delayletter = () => {
+  return new Promise(resolve => setTimeout((resolve), 200))
+}
+const delayWord = () => {
+  return new Promise(resolve => setTimeout((resolve), 1000))
+}
+keywordAnimation();
+
+if (!keywordTyping) {
+  keywordTyping = true;
+  // let keywordTimer = setInterval(keywordAnimation, 1000);
+}
+
+
+
