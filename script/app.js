@@ -42,7 +42,7 @@ const mainBg = () => {
 
 const $sections = document.querySelectorAll('.common-group');
 const sectionsOffsetTop = Array.from($sections).map((v) => {
-  return v.offsetTop;
+  return v.offsetTop / 2;
 })
 
 const windowHeight = window.innerHeight;
@@ -54,39 +54,39 @@ let scrollPage = 1;
 
 let oldValue = 0;
 const moveSection = (e) => {
-  // let { scrollTop } = e.target.scrollingElement;
-  // const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  let { scrollTop } = e.target.scrollingElement;
+  const newValue = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
   // scroll down
-  // if (oldValue - newValue < 0) {  
-  //   console.log('scroll down');
-  //   for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-  //     if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-  //       console.log(sectionsOffsetTop[i]);
-  //       window.scrollTo({
-  //         top: sectionsOffsetTop[i + 1],
-  //         left: 0,
-  //         behavior: "smooth"
-  //       })
-  //     }
-  //   }
-  // } 
+  if (oldValue - newValue < 0) {  
+    console.log('scroll down');
+    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+        console.log(sectionsOffsetTop[i] / 2);
+        // window.scrollTo({
+        //   top: sectionsOffsetTop[i + 1],
+        //   left: 0,
+        //   behavior: "smooth"
+        // })
+      }
+    }
+  } 
   // scroll top
-  // if(oldValue - newValue > 0) { 
-  //   console.log('scroll up');
-  //   for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-  //     if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
-  //       console.log(sectionsOffsetTop[i]);
-  //       window.scrollTo({
-  //         top: sectionsOffsetTop[i],
-  //         left: 0,
-  //         behavior: "smooth"
-  //       })
-  //     }
-  //   }
-  // }
+  if(oldValue - newValue > 0) { 
+    console.log('scroll up');
+    for(let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (sectionsOffsetTop[i] <= scrollTop && sectionsOffsetTop[i + 1] >= scrollTop) {
+        console.log(sectionsOffsetTop[i]);
+        // window.scrollTo({
+        //   top: sectionsOffsetTop[i],
+        //   left: 0,
+        //   behavior: "smooth"
+        // })
+      }
+    }
+  }
 
-  // oldValue = newValue;
+  oldValue = newValue;
 
   
 };
