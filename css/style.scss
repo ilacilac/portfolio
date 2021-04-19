@@ -1,6 +1,4 @@
-$font-color: #1d1720;
-$point-color: #423148;
-$sub-color: #a28ec9;
+@import "variables";
 
 body {
   transition: all 1s;
@@ -130,8 +128,16 @@ main {
   > div {
     flex-basis: 50%;
   }
-  .introduce-text {
+  .introduce-text-wrap {
     text-align: left;
+    .introduce-text {
+      margin-top: 20px;
+    }
+  }
+  .introduce-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: $point-color;
   }
 }
 

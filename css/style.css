@@ -175,8 +175,18 @@ main .main-keyword {
       flex-basis: 50%;
 }
 
-.introduce-wrap .introduce-text {
+.introduce-wrap .introduce-text-wrap {
   text-align: left;
+}
+
+.introduce-wrap .introduce-text-wrap .introduce-text {
+  margin-top: 20px;
+}
+
+.introduce-wrap .introduce-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #423148;
 }
 
 /* === Animations === */
