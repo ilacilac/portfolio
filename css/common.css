@@ -134,3 +134,7 @@ h2 {
 .skip-nav a:focus {
   top: 0;
 }
+
+.w50p {
+  width: 50%;
+}

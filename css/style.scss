@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 body {
   transition: all 1s;
@@ -141,6 +141,80 @@ main {
   }
 }
 
+/* === Skills === */
+.skill-text {
+  width: 33.3%;
+  padding: 0 10px;
+  text-align: center;
+  box-sizing: border-box;
+  strong {
+    display: inline-block;
+    .skill-icon {
+      display: inline-block;
+      margin: 0 2px 0 0;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      font-size: 3rem;
+      font-weight: 400;
+      text-align: center;
+      color: #ffffff;
+      transition: all 0.7s;
+      perspective: 100px;
+      transform-style: preserve-3d;
+      background: $point-color;
+      &:hover {
+        transform: rotateY(180deg);
+        background: $sub-color;
+      }
+    }
+  }
+  p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+/* === Works === */
+.works-wrap {
+  // position: relative;
+  justify-content: center;
+  align-content: flex-start;
+  .slide-wrap {
+    width: 100%;
+    position: relative;
+    top: 0;
+    // overflow: hidden;
+    .slide {
+      position: absolute;
+      display: flex;
+      flex-basis: 100%;
+      width: 100%;
+      
+      // transform: translate(100%, 0);
+      // transition: all 0.5s;
+      figure {
+        margin: 0;
+      }
+      .work-text-wrap {
+        margin-left: 20px;
+
+        text-align: left;
+        font-size: 1.2rem;
+
+        .w50p {
+          float: left;
+          box-sizing: border-box;
+        }
+      }
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+  }
+}
 /* === Animations === */
 @keyframes smoke-move {
   0% {
