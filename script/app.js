@@ -195,23 +195,31 @@ let autoplay = false;
 const speed = '0.5s';
 
 const slideMove = () => {
+  const $slideButtons = $slideIndicatorWrap.querySelectorAll('.slide-button');
   const move = () => {
+    $slideIndicatorWrap.querySelectorAll('.slide-button').forEach((button) => {
+      button.classList.remove('active');
+    })
     $slideWrap.style.cssText = `transform: translate(${currentSlide * -100}%, 0); transition: all ${speed};`;
+    $slideIndicatorWrap.querySelectorAll('.slide-button')[currentSlide - 1].classList.add('active');
     if(currentSlide >= $slide.length) {
       // $slideWrap.style.cssText = `animation: move-slide ${speed};`
       currentSlide = 1;
     } else {
-      currentSlide++;
+      ++currentSlide;
     }
+    // $slideButtons[currentSlide].classList.add('active');
+    
   };
   // let timer = setInterval(() => {
   //   move();
   // }, 3000);
   $slideIndicatorWrap.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('.slide-button')) false;
+    if (!e.target.classList.contains('slide-button')) return false;
     currentSlide = e.target.textContent;
     timer = clearInterval();
     move();
+    
   });
 }
 slideMove();
@@ -222,7 +230,12 @@ window.addEventListener('load', () => {
       slide.style.cssText = `opacity: 1; transform: translate(${index * 100}%, 0)`;
     })
     $slide.forEach((_, index) => {
-      $slideIndicatorWrap.innerHTML += `<button class="slide-button">${index + 1}</button>`
+      if (index === 0) {
+        $slideIndicatorWrap.innerHTML += `<button class="slide-button active">${index + 1}</button>`
+      } else {
+        $slideIndicatorWrap.innerHTML += `<button class="slide-button">${index + 1}</button>`
+      }
+      
     })
     // slideMove();
     

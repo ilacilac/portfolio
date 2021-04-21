@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -269,8 +270,44 @@ main .main-keyword {
   font-size: 1.2rem;
 }
 
+.works-wrap .slide-wrap .slide .work-text-wrap strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.8rem;
+  color: #423148;
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap p {
+  margin-top: 5px;
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap ul {
+  margin-top: 5px;
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap .time {
+  font-weight: 600;
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap .time::before {
+  content: '📅';
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap .topic {
+  font-weight: 600;
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap .topic::before {
+  content: '🥅';
+}
+
+.works-wrap .slide-wrap .slide .work-text-wrap .work-text:nth-child(1) strong {
+  margin-top: 0;
+}
+
 .works-wrap .slide-wrap .slide .work-text-wrap .w50p {
   float: left;
+  margin-top: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -283,14 +320,21 @@ main .main-keyword {
 
 .works-wrap .slide-indicator {
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
 }
 
 .works-wrap .slide-indicator .slide-button {
   width: 25px;
   height: 25px;
   margin: 0 5px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  color: #ffffff;
   background: #a28ec9;
+}
+
+.works-wrap .slide-indicator .active {
+  background: #423148;
 }
 
 /* === Animations === */

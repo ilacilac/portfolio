@@ -202,9 +202,40 @@ main {
 
         text-align: left;
         font-size: 1.2rem;
-
+        strong {
+          display: block;
+          margin-top: 5px;
+          font-size: 1.8rem;
+          color: $point-color;
+        }
+        p {
+          margin-top: 5px;
+        }
+        ul {
+          margin-top: 5px;
+        }
+        .time {
+          font-weight: 600;
+          &::before {
+            content: '📅';
+          }
+        }
+        .topic {
+          font-weight: 600;
+          &::before {
+            content: '🥅';
+          }
+        }
+        .work-text {
+          &:nth-child(1) {
+            strong {
+              margin-top: 0;
+            }
+          }
+        }
         .w50p {
           float: left;
+          margin-top: 5px;
           box-sizing: border-box;
         }
       }
@@ -217,12 +248,18 @@ main {
   }
   .slide-indicator {
     position: absolute;
-    bottom: 50px;
+    bottom: 70px;
     .slide-button {
       width: 25px;
       height: 25px;
       margin: 0 5px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: #ffffff;
       background: $sub-color;
+    }
+    .active {
+      background: $point-color;
     }
   }
 }
