@@ -191,19 +191,38 @@ main .main-keyword {
 }
 
 /* === Skills === */
-.skill-text {
-  width: 33.3%;
+.skills-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.skills-wrap .skill-text-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.skills-wrap .skill-text-wrap .skill-text {
+  text-align: left;
+  width: 100%;
   padding: 0 10px;
-  text-align: center;
+  text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.skill-text strong {
+.skills-wrap .skill-text-wrap .skill-text strong {
   display: inline-block;
 }
 
-.skill-text strong .skill-icon {
+.skills-wrap .skill-text-wrap .skill-text strong .skill-icon {
   display: inline-block;
   margin: 0 2px 0 0;
   width: 45px;
@@ -222,13 +241,13 @@ main .main-keyword {
   background: #423148;
 }
 
-.skill-text strong .skill-icon:hover {
+.skills-wrap .skill-text-wrap .skill-text strong .skill-icon:hover {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background: #a28ec9;
 }
 
-.skill-text p {
+.skills-wrap .skill-text-wrap .skill-text p {
   margin-top: 10px;
   font-size: 1.2rem;
 }
@@ -239,22 +258,34 @@ main .main-keyword {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
   overflow: hidden;
 }
 
 .works-wrap .slide-wrap {
+  position: absolute;
+  top: 30%;
   width: 100%;
-  position: relative;
-  top: 0;
+  height: auto;
+}
+
+.works-wrap .slide-wrap::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .works-wrap .slide-wrap .slide {
   position: absolute;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   width: 100%;
@@ -319,8 +350,7 @@ main .main-keyword {
 }
 
 .works-wrap .slide-indicator {
-  position: absolute;
-  bottom: 70px;
+  margin-bottom: 50px;
 }
 
 .works-wrap .slide-indicator .slide-button {
