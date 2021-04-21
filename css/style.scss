@@ -179,7 +179,7 @@ main {
       p {
         // display: none; // 임시
         margin-top: 10px;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
   }
@@ -218,18 +218,19 @@ main {
         margin-left: 20px;
 
         text-align: left;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        line-height: 1.5;
         strong {
           display: block;
-          margin-top: 5px;
-          font-size: 1.8rem;
+          margin-top: 15px;
+          font-size: 2.4rem;
           color: $point-color;
         }
         p {
-          margin-top: 5px;
+          margin-top: 7px;
         }
         ul {
-          margin-top: 5px;
+          margin-top: 7px;
         }
         .time {
           font-weight: 600;

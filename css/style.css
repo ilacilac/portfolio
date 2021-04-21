@@ -249,7 +249,7 @@ main .main-keyword {
 
 .skills-wrap .skill-text-wrap .skill-text p {
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 /* === Works === */
@@ -298,22 +298,23 @@ main .main-keyword {
 .works-wrap .slide-wrap .slide .work-text-wrap {
   margin-left: 20px;
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
 .works-wrap .slide-wrap .slide .work-text-wrap strong {
   display: block;
-  margin-top: 5px;
-  font-size: 1.8rem;
+  margin-top: 15px;
+  font-size: 2.4rem;
   color: #423148;
 }
 
 .works-wrap .slide-wrap .slide .work-text-wrap p {
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 .works-wrap .slide-wrap .slide .work-text-wrap ul {
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 .works-wrap .slide-wrap .slide .work-text-wrap .time {
