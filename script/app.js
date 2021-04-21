@@ -63,13 +63,13 @@ const moveSection = (e) => {
 
   // scroll down
   if (oldValue - newValue < 0) {
-    console.log('scroll down');
+    // console.log('scroll down');
     for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
       if (
         sectionsOffsetTop[i] <= scrollTop &&
         sectionsOffsetTop[i + 1] >= scrollTop
       ) {
-        console.log(i);
+        // console.log(i);
         $sections[i].classList.add('active');
       } else {
         $sections[i].classList.remove('active');
@@ -78,7 +78,7 @@ const moveSection = (e) => {
   }
   // scroll top
   if (oldValue - newValue > 0) {
-    console.log('scroll up');
+    // console.log('scroll up');
     for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
       if (
         sectionsOffsetTop[i] <= scrollTop &&
@@ -133,41 +133,6 @@ $menuWrap.addEventListener('click', (e) => {
   }
 });
 
-// TEST CODE
-// const mainKeywordArray = $mainKeyword.textContent.split('');
-// let keyword = [];
-// mainKeywordArray.forEach((_keyword, index) => {
-
-//     // console.log(_keyword);
-
-//     // $mainKeyword.innerHTML += `<span>${_keyword[index]}</span>`;
-
-// })
-
-// for (let i = 0; i < mainKeywordArray.length; i++) {
-//   let spell = mainKeywordArray[i].split('');
-//   let word = [];
-//   let count = 0;
-
-//   for (let j = 0; j < spell.length; j++) {
-//     // console.log(spell);
-
-//     // setTimeout(()=>{
-//     //   $mainKeyword.innerHTML += `<span>${mainKeywordArray[i][j]}</span>`;
-//     // },1000)
-//     // word += mainKeywordArray[i][j];
-
-//     word = mainKeywordArray[i].split('');
-
-//     // console.log(word);
-//   }
-//   // setInterval(() => {
-//   //   console.log(mainKeywordArray[i]);
-//   // }, 1000)
-//   // console.log(mainKeywordArray[i]);
-//   let test = [];
-// }
-
 // Main Keywords animation
 const $mainKeyword = document.querySelector('.main-keyword');
 const mainKeywordArray = [
@@ -212,3 +177,54 @@ const delayWord = () => {
   return new Promise((resolve) => setTimeout(resolve, 1000));
 };
 keywordAnimation();
+
+
+// Slide
+
+
+const $slideWrap = document.querySelector('.slide-wrap')
+const $slide = $slideWrap.querySelectorAll('.slide');
+const beforeCloneSlide = $slide[$slide.length - 1].cloneNode(true);
+const afterCloneSlide = $slide[0].cloneNode(true);
+$slideWrap.insertBefore(beforeCloneSlide, $slideWrap.firstChild);
+$slideWrap.appendChild(afterCloneSlide);
+const $slideIndicatorWrap = document.querySelector('.slide-indicator'); 
+
+let currentSlide = 1;
+let autoplay = false;
+const speed = '0.5s';
+
+const slideMove = () => {
+  const move = () => {
+    $slideWrap.style.cssText = `transform: translate(${currentSlide * -100}%, 0); transition: all ${speed};`;
+    if(currentSlide >= $slide.length) {
+      // $slideWrap.style.cssText = `animation: move-slide ${speed};`
+      currentSlide = 1;
+    } else {
+      currentSlide++;
+    }
+  };
+  // let timer = setInterval(() => {
+  //   move();
+  // }, 3000);
+  $slideIndicatorWrap.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('.slide-button')) false;
+    currentSlide = e.target.textContent;
+    timer = clearInterval();
+    move();
+  });
+}
+slideMove();
+
+window.addEventListener('load', () => {  
+    $slideWrap.querySelectorAll('.slide').forEach((slide, index) => {
+      $slideWrap.style.cssText = `transform: translate(${currentSlide * -100}%, 0);`
+      slide.style.cssText = `opacity: 1; transform: translate(${index * 100}%, 0)`;
+    })
+    $slide.forEach((_, index) => {
+      $slideIndicatorWrap.innerHTML += `<button class="slide-button">${index + 1}</button>`
+    })
+    // slideMove();
+    
+  // slide-wrap으로 움직이기, 맨앞에 맨뒤에 tag추가하기
+})

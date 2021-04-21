@@ -234,11 +234,13 @@ main .main-keyword {
 
 /* === Works === */
 .works-wrap {
+  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+  overflow: hidden;
 }
 
 .works-wrap .slide-wrap {
@@ -277,6 +279,18 @@ main .main-keyword {
   content: '';
   display: block;
   clear: both;
+}
+
+.works-wrap .slide-indicator {
+  position: absolute;
+  bottom: 50px;
+}
+
+.works-wrap .slide-indicator .slide-button {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  background: #a28ec9;
 }
 
 /* === Animations === */
@@ -334,5 +348,27 @@ main .main-keyword {
   }
   100% {
     border-right: 2px solid #1d1720;
+  }
+}
+
+@-webkit-keyframes move-slide {
+  0% {
+    -webkit-transform: translate(-200%, 0);
+            transform: translate(-200%, 0);
+  }
+  100% {
+    -webkit-transform: translate(-300%, 0);
+            transform: translate(-300%, 0);
+  }
+}
+
+@keyframes move-slide {
+  0% {
+    -webkit-transform: translate(-200%, 0);
+            transform: translate(-200%, 0);
+  }
+  100% {
+    -webkit-transform: translate(-300%, 0);
+            transform: translate(-300%, 0);
   }
 }

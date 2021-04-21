@@ -177,14 +177,15 @@ main {
 
 /* === Works === */
 .works-wrap {
-  // position: relative;
+  position: relative;
   justify-content: center;
   align-content: flex-start;
+  overflow: hidden;
   .slide-wrap {
     width: 100%;
     position: relative;
     top: 0;
-    // overflow: hidden;
+    
     .slide {
       position: absolute;
       display: flex;
@@ -192,7 +193,7 @@ main {
       width: 100%;
       
       // transform: translate(100%, 0);
-      // transition: all 0.5s;
+      // transition: all 5.5s;
       figure {
         margin: 0;
       }
@@ -212,6 +213,16 @@ main {
         display: block;
         clear: both;
       }
+    }
+  }
+  .slide-indicator {
+    position: absolute;
+    bottom: 50px;
+    .slide-button {
+      width: 25px;
+      height: 25px;
+      margin: 0 5px;
+      background: $sub-color;
     }
   }
 }
@@ -243,5 +254,13 @@ main {
   }
 }
 
+@keyframes move-slide {
+  0% {
+    transform: translate(-200%, 0);
+  }
+  100% {
+    transform: translate(-300%, 0);
+  }
+} 
 @media screen and(min-width: 1024px) {
 }
