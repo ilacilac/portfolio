@@ -6,6 +6,7 @@ body {
 
 /* === MAIN === */
 main {
+  font-family: 'Noto Sans KR', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,6 +156,7 @@ main .main-keyword {
 .common-group h2 {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  font-weight: 400;
 }
 
 .common-group h2 span {
@@ -171,33 +173,64 @@ main .main-keyword {
 }
 
 /* === Introduce === */
-.introduce-wrap > div {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-}
-
-.introduce-wrap .introduce-text-wrap {
+.introduce-text-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
   text-align: left;
+  line-height: 1.5;
 }
 
-.introduce-wrap .introduce-text-wrap .introduce-text {
-  margin-top: 20px;
+.introduce-text-wrap .introduce-subtitle {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  color: #a28ec9;
 }
 
-.introduce-wrap .introduce-title {
-  font-size: 3.2rem;
+.introduce-text-wrap .introduce-text {
+  margin-top: 50px;
+  color: #555555;
+}
+
+.introduce-text-wrap .introduce-link-wrap a {
+  display: inline-block;
+  margin: 50px 0 0;
+  padding: 15px 35px;
+  border: 2px solid #423148;
+  border-radius: 50px;
+  color: #423148;
+}
+
+.introduce-text-wrap .introduce-link-wrap a + a {
+  margin-left: 5px;
+}
+
+.introduce-text-wrap .introduce-link-wrap a:hover {
+  color: #fff;
+  background: #423148;
+}
+
+.introduce-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #423148;
 }
 
 /* === Skills === */
-.skills-wrap {
+.introduce-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.skills-wrap .skill-text-wrap {
+.introduce-wrap .skill-text-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,24 +238,28 @@ main .main-keyword {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 55%;
+      flex-basis: 55%;
 }
 
-.skills-wrap .skill-text-wrap .skill-text {
+.introduce-wrap .skill-text-wrap .skill-text {
   text-align: left;
-  width: 100%;
+  width: 50%;
   padding: 0 10px;
   text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.skills-wrap .skill-text-wrap .skill-text strong {
+.introduce-wrap .skill-text-wrap .skill-text strong {
   display: inline-block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #423148;
 }
 
-.skills-wrap .skill-text-wrap .skill-text strong .skill-icon {
+.introduce-wrap .skill-text-wrap .skill-text strong .skill-icon {
   display: inline-block;
   margin: 0 2px 0 0;
   width: 45px;
@@ -241,15 +278,17 @@ main .main-keyword {
   background: #423148;
 }
 
-.skills-wrap .skill-text-wrap .skill-text strong .skill-icon:hover {
+.introduce-wrap .skill-text-wrap .skill-text strong .skill-icon:hover {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background: #a28ec9;
 }
 
-.skills-wrap .skill-text-wrap .skill-text p {
+.introduce-wrap .skill-text-wrap .skill-text p {
   margin-top: 10px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #555555;
 }
 
 /* === Works === */

@@ -6,6 +6,7 @@ body {
 
 /* === MAIN === */
 main {
+  font-family: 'Noto Sans KR', sans-serif;
   .main-bg {
     position: absolute;
     top: -100px;
@@ -109,6 +110,7 @@ main {
   transition: all 1s;
   h2 {
     flex-basis: 100%;
+    font-weight: 400;
     span {
       display: inline-block;
       &::after {
@@ -124,38 +126,66 @@ main {
 }
 
 /* === Introduce === */
-.introduce-wrap {
-  > div {
-    flex-basis: 50%;
+
+.introduce-text-wrap {
+  display: flex;
+  flex-flow: column wrap;
+  flex-basis: 45%;
+  text-align: left;
+  line-height: 1.5;
+  .introduce-subtitle {
+    margin-top: 50px;
+    font-size: 1.8rem;
+    color: $sub-color;
   }
-  .introduce-text-wrap {
-    text-align: left;
-    .introduce-text {
-      margin-top: 20px;
+  .introduce-text {
+    margin-top: 50px;
+    color: $font-color-black2;
+  }
+  .introduce-link-wrap {
+    a {
+      display: inline-block;
+      margin: 50px 0 0;
+      padding: 15px 35px;
+      border: 2px solid $point-color;
+      border-radius: 50px;
+      color: $point-color;
+      + a {
+        margin-left: 5px;
+      }
+      &:hover {
+        color: #fff;
+        background: $point-color;
+      }
     }
   }
-  .introduce-title {
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: $point-color;
-  }
+}
+.introduce-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: $point-color;
 }
 
 /* === Skills === */
-.skills-wrap {
+.introduce-wrap {
   display: flex;
   .skill-text-wrap {
     display: flex;
     flex-flow: row wrap;
-    flex-basis: 50%;
+    flex-basis: 55%;
     .skill-text {
       text-align: left;
-      width: 100%;
+      width: 50%;
       padding: 0 10px;
       text-align: left;
       box-sizing: border-box;
       strong {
         display: inline-block;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: $point-color;
         .skill-icon {
           display: inline-block;
           margin: 0 2px 0 0;
@@ -179,7 +209,9 @@ main {
       p {
         // display: none; // 임시
         margin-top: 10px;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        color: $font-color-black2;
       }
     }
   }

@@ -6,7 +6,7 @@ body {
   width: 100%;
   margin: 0 auto;
   letter-spacing: -0.025rem;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 h1,
@@ -95,6 +95,11 @@ body {
   font-size: 1.6rem;
   line-height: 1.3;
   /* overflow: hidden; */
+}
+
+.wrap-1200 {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 h2 {
