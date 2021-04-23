@@ -100,10 +100,9 @@ main .main-keyword {
   position: fixed;
   right: 0;
   z-index: 100;
-  height: 50vh;
-  border-radius: 50px;
+  width: 60px;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .menu-wrap ul {
@@ -115,27 +114,51 @@ main .main-keyword {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.menu-wrap li {
-  height: 100%;
 }
 
 .menu-wrap a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
+  width: 60px;
+  height: 80px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-indent: -9999px;
+}
+
+.menu-wrap a img {
+  width: 50%;
+}
+
+.menu-wrap .about {
+  background: url("../images/chat.png") center no-repeat;
+  background-size: 50%;
+}
+
+.menu-wrap .works {
+  background: url("../images/code.png") center no-repeat;
+  background-size: 50%;
+}
+
+.menu-wrap .contact {
+  background: url("../images/mail.png") center no-repeat;
+  background-size: 50%;
 }
 
 /* === Common group === */
@@ -169,7 +192,7 @@ main .main-keyword {
   width: 80%;
   height: 2px;
   margin: 25px auto 0px;
-  background: #a28ec9;
+  background: #a2a1dc;
 }
 
 /* === Introduce === */
@@ -197,7 +220,7 @@ main .main-keyword {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
-  color: #423148;
+  color: #514862;
 }
 
 .introduce-wrap .introduce-text-wrap .introduce-title::before {
@@ -217,7 +240,7 @@ main .main-keyword {
 .introduce-wrap .introduce-text-wrap .introduce-subtitle {
   margin-top: 50px;
   font-size: 1.8rem;
-  color: #a28ec9;
+  color: #a2a1dc;
 }
 
 .introduce-wrap .introduce-text-wrap .introduce-text {
@@ -240,21 +263,47 @@ main .main-keyword {
 }
 
 .introduce-wrap .introduce-text-wrap .introduce-link-wrap a {
+  overflow: hidden;
+  position: relative;
   display: inline-block;
   margin: 50px 0 0;
   padding: 15px 35px;
-  border: 2px solid #423148;
+  border: 2px solid #514862;
   border-radius: 50px;
-  color: #423148;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #514862;
 }
 
 .introduce-wrap .introduce-text-wrap .introduce-link-wrap a + a {
   margin-left: 5px;
 }
 
+.introduce-wrap .introduce-text-wrap .introduce-link-wrap a::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 100%;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  opacity: 0.5;
+  background: #a2a1dc;
+}
+
 .introduce-wrap .introduce-text-wrap .introduce-link-wrap a:hover {
-  color: #fff;
-  background: #423148;
+  font-weight: 800;
+}
+
+.introduce-wrap .introduce-text-wrap .introduce-link-wrap a:hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #a2a1dc;
 }
 
 .introduce-wrap .skill-text-wrap {
@@ -276,6 +325,7 @@ main .main-keyword {
   text-align: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  word-break: keep-all;
 }
 
 .introduce-wrap .skill-text-wrap .skill-text strong {
@@ -283,7 +333,7 @@ main .main-keyword {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
-  color: #423148;
+  color: #514862;
 }
 
 .introduce-wrap .skill-text-wrap .skill-text strong .skill-icon {
@@ -302,13 +352,13 @@ main .main-keyword {
           perspective: 100px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  background: #423148;
+  background: #514862;
 }
 
 .introduce-wrap .skill-text-wrap .skill-text strong .skill-icon:hover {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background: #a28ec9;
+  background: #a2a1dc;
 }
 
 .introduce-wrap .skill-text-wrap .skill-text p {
@@ -392,7 +442,7 @@ main .main-keyword {
   display: block;
   margin-top: 15px;
   font-size: 2.4rem;
-  color: #423148;
+  color: #514862;
 }
 
 .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap p {
@@ -447,16 +497,27 @@ main .main-keyword {
   border-radius: 50%;
   font-size: 1.3rem;
   color: #ffffff;
-  background: #a28ec9;
+  background: #a2a1dc;
 }
 
 .works-wrap .wrap-1200 .slide-indicator .active {
-  background: #423148;
+  background: #514862;
 }
 
+/* === Footer === */
 .footer {
-  position: relative;
   overflow: hidden;
+  display: block;
+  position: relative;
+  padding: 100px 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #ffffff;
+  background: #514862;
+}
+
+.footer h2 {
+  color: #ffffff;
 }
 
 .footer::before {
@@ -469,6 +530,159 @@ main .main-keyword {
   -webkit-transform: rotate(2.5deg);
           transform: rotate(2.5deg);
   background: #f2f2f2;
+}
+
+.footer .form-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 40%;
+  max-width: 1200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer .form-wrap .form-group {
+  width: 47%;
+  padding: 0;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer .form-wrap .form-group label {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer .form-wrap .form-group input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 15px 10px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer .form-wrap .form-group input::-webkit-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap .form-group input:-ms-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap .form-group input::-ms-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap .form-group input::placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap .form-group .email-warning {
+  font-size: 1.1rem;
+  visibility: visible;
+  color: #cacadc;
+}
+
+.footer .form-wrap :nth-of-type(3) {
+  width: 100%;
+}
+
+.footer .form-wrap :nth-of-type(3) textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 8px;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+
+.footer .form-wrap :nth-of-type(3) textarea::-webkit-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap :nth-of-type(3) textarea:-ms-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap :nth-of-type(3) textarea::-ms-input-placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap :nth-of-type(3) textarea::placeholder {
+  font-size: 1.3rem;
+}
+
+.footer .form-wrap .submit-button {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 15px 35px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 50px;
+}
+
+.footer .form-wrap .submit-button:not(disabled)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 100%;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  opacity: 0.5;
+  background: #ffffff;
+}
+
+.footer .form-wrap .submit-button:not(disabled):hover {
+  font-weight: 800;
+}
+
+.footer .form-wrap .submit-button:not(disabled):hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+.footer .form-wrap .submit-button:disabled {
+  opacity: 0.3;
+}
+
+.footer .form-wrap .submit-button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.footer .form-wrap .thankyou_message {
+  width: 100%;
+  margin: 25px 0 0;
+  font-size: 3.2rem;
+  line-height: 1.5;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.footer .footer-bottom {
+  margin-top: 35px;
+  color: #bebebe;
 }
 
 /* === Animations === */

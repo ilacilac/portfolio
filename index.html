@@ -54,16 +54,17 @@
         <span class="main-keyword" aria-hidden="true"></span><br />
         프론트엔드 개발자 박민지입니다 :D
       </h1>
-      <button class="main-btn">
+      <a class="main-btn" href="#introduce-wrap">
         <img src="./images/lilac-icon.png" alt="아래로 이동" />
-      </button>
+      </a>
       <nav class="menu-wrap">
         <h2 class="a11y-hidden">메뉴</h2>
         <ul>
-          <li><a href="#introduce-wrap" class="menu-link">about me</a></li>
-          <li><a href="#skills-wrap" class="menu-link">skills</a></li>
-          <li><a href="#works-wrap" class="menu-link">works</a></li>
-          <li><a href="#footer" class="menu-link">contact</a></li>
+          <li>
+            <a href="#introduce-wrap" class="menu-link about">about me</a>
+          </li>
+          <li><a href="#works-wrap" class="menu-link works">works</a></li>
+          <li><a href="#footer" class="menu-link contact">contact me</a></li>
         </ul>
       </nav>
     </main>
@@ -72,7 +73,7 @@
       <h2><span>Introduce</span></h2>
       <div class="introduce-profile">
         <figure>
-          <img src="http://placehold.it/320x320/423148/ffffff?text=profile" />
+          <img src="http://placehold.it/320x320/514862/ffffff?text=profile" />
         </figure>
       </div>
       
@@ -116,42 +117,40 @@
           <div class="skill-text">
             <strong>Markup</strong>
             <p>
-              웹표준과 웹접근성을 고려하여 마크업을 합니다.<br />
-              시멘틱한 태그를 사용하여 웹페이지를 구성합니다.<br />
-              SEO관점에서 어떻게 노출되었을 때 효과적인지 생각합니다.
+              웹표준과 웹접근성을 고려하여 마크업을 합니다. 시멘틱한 태그를
+              사용하여 웹페이지를 구성합니다. SEO관점에서 어떻게 노출되었을 때
+              효과적인지 생각합니다.
             </p>
           </div>
           <div class="skill-text">
             <strong>Styling</strong>
             <p>
-              JS로 작성하지 않고 CSS로 구현 할 수 있는 부분은<br />
-              최대한 CSS로 작성합니다. 최근 프로젝트는 SCSS로 작성하여<br />
-              간결하고 시너지있는 스타일링을 합니다.
+              JS로 작성하지 않고 CSS로 구현 할 수 있는 부분은 최대한 CSS로
+              작성합니다. 최근 프로젝트는 SCSS로 작성하여 간결하고 시너지있는
+              스타일링을 합니다.
             </p>
           </div>
           <div class="skill-text">
             <strong>JavaScript</strong>
             <p>
-              ES2015+ 기반 모던 자바스크립트를 사용하고 있습니다.<br />
-              JavaScript library React를 주로 사용합니다.<br />
-              그 외, 상태관리를 위해 Redux, Web UI개발을 위해 jQuery사용 경험이
-              있습니다.
+              ES2015+ 기반 모던 자바스크립트를 사용하고 있습니다. JavaScript
+              library React를 주로 사용합니다. 그 외, 상태관리를 위해 Redux, Web
+              UI개발을 위해 jQuery사용 경험이 있습니다.
             </p>
           </div>
           <div class="skill-text">
             <strong>Server</strong>
             <p>
-              Express / Koa Framework를 사용하여 서버를 만들어보고,<br />
-              REST API로직에 따라 MongoDB 데이터베이스에 접근하여 <br />
-              작업을 처리하는 경험을 해보았습니다.<br />
+              Express / Koa Framework를 사용하여 서버를 만들어보고, REST
+              API로직에 따라 MongoDB 데이터베이스에 접근하여 작업을 처리하는
+              경험을 해보았습니다.
             </p>
           </div>
           <div class="skill-text">
             <strong>Develop Environment</strong>
             <p>
-              협업 시, git을 사용하여 프로젝트 관리를 진행하였습니다.<br />
-              Webpack, Babel을 사용하여 Build를 합니다.<br />
-              Prettier와 ESLint를 사용합니다.
+              협업 시, git을 사용하여 프로젝트 관리를 진행하였습니다. Webpack,
+              Babel을 사용하여 Build를 합니다. Prettier와 ESLint를 사용합니다.
             </p>
           </div>
           <div class="skill-text">
@@ -168,7 +167,7 @@
           <div class="slide">
             <figure>
               <img
-                src="http://placehold.it/500x500/423148/ffffff?text=thumbnail01"
+                src="http://placehold.it/500x500/514862/ffffff?text=thumbnail01"
               />
             </figure>
             <div class="work-text-wrap">
@@ -212,7 +211,7 @@
           <div class="slide">
             <figure>
               <img
-                src="http://placehold.it/500x500/423148/ffffff?text=thumbnail02"
+                src="http://placehold.it/500x500/514862/ffffff?text=thumbnail02"
               />
             </figure>
             <div class="work-text-wrap">
@@ -252,7 +251,7 @@
           <div class="slide">
             <figure>
               <img
-                src="http://placehold.it/500x500/423148/ffffff?text=thumbnail03"
+                src="http://placehold.it/500x500/514862/ffffff?text=thumbnail03"
               />
             </figure>
             <div class="work-text-wrap">
@@ -293,6 +292,64 @@
         <div class="slide-indicator"></div>
       </div>
     </section>
-    <footer class="common-group footer" id="footer">Footer</footer>
+    <footer class="common-group footer" id="footer">
+      <div class="footer-top">
+        <h2>
+          <span><b>CONTACT</b> ME</span>
+        </h2>
+        <form
+          class="gform"
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbwRTeX08-xezBAc4DAK233HlFkAYaOELBHTx9qeVm1msBhh4S-p14ccoIpptBwGciVf/exec"
+        >
+          <div class="form-wrap">
+            <fieldset class="form-group">
+              <label for="name">Name: </label>
+              <input
+                id="name"
+                class="name"
+                name="name"
+                placeholder="이름 / 회사명을 입력해주세요."
+              />
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="email"><em>Your</em> Email Address:</label>
+              <input
+                id="email"
+                class="email"
+                name="email"
+                type="email"
+                value=""
+                required
+                placeholder="이메일을 입력해주세요."
+              />
+              <span class="email-warning"
+                >* 이메일 형식에 맞게 입력해주세요.</span
+              >
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="message">Message: </label>
+              <textarea
+                id="message"
+                class="message"
+                name="message"
+                rows="10"
+                placeholder="메세지를 입력해주세요."
+              ></textarea>
+            </fieldset>
+            <button class="submit-button" disabled>SEND MESSAGE</button>
+            <div class="thankyou_message">
+              <!-- You can customize the thankyou message by editing the code below -->
+              <p>감사합니다 : )<br />빠른시일안에 답변드리겠습니다!</p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span></span>
+        <small>&copy; 2021 by MIN JI PARK. All rights reserved.</small>
+      </div>
+    </footer>
+    <script src="./script/email.js"></script>
   </body>
 </html>

@@ -120,6 +120,8 @@ document.addEventListener('scroll', process);
 
 // Menu Scroll Event
 const $menuWrap = document.querySelector('.menu-wrap');
+const $mainBtn = document.querySelector('.main-btn');
+const $introduceWrap = document.querySelector('.introduce-wrap');
 $menuWrap.addEventListener('click', (e) => {
   e.preventDefault();
   if (e.target.classList.contains('menu-link')) {
@@ -131,6 +133,14 @@ $menuWrap.addEventListener('click', (e) => {
       behavior: 'smooth',
     });
   }
+});
+$mainBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: $introduceWrap.offsetTop,
+    left: 0,
+    behavior: 'smooth',
+  });
 });
 
 // Main Keywords animation
@@ -178,17 +188,15 @@ const delayWord = () => {
 };
 keywordAnimation();
 
-
 // Slide
 
-
-const $slideWrap = document.querySelector('.slide-wrap')
+const $slideWrap = document.querySelector('.slide-wrap');
 const $slide = $slideWrap.querySelectorAll('.slide');
 const beforeCloneSlide = $slide[$slide.length - 1].cloneNode(true);
 const afterCloneSlide = $slide[0].cloneNode(true);
 $slideWrap.insertBefore(beforeCloneSlide, $slideWrap.firstChild);
 $slideWrap.appendChild(afterCloneSlide);
-const $slideIndicatorWrap = document.querySelector('.slide-indicator'); 
+const $slideIndicatorWrap = document.querySelector('.slide-indicator');
 
 let currentSlide = 1;
 let autoplay = false;
@@ -199,17 +207,20 @@ const slideMove = () => {
   const move = () => {
     $slideIndicatorWrap.querySelectorAll('.slide-button').forEach((button) => {
       button.classList.remove('active');
-    })
-    $slideWrap.style.cssText = `transform: translate(${currentSlide * -100}%, 0); transition: all ${speed};`;
-    $slideIndicatorWrap.querySelectorAll('.slide-button')[currentSlide - 1].classList.add('active');
-    if(currentSlide >= $slide.length) {
+    });
+    $slideWrap.style.cssText = `transform: translate(${
+      currentSlide * -100
+    }%, 0); transition: all ${speed};`;
+    $slideIndicatorWrap
+      .querySelectorAll('.slide-button')
+      [currentSlide - 1].classList.add('active');
+    if (currentSlide >= $slide.length) {
       // $slideWrap.style.cssText = `animation: move-slide ${speed};`
       currentSlide = 1;
     } else {
       ++currentSlide;
     }
     // $slideButtons[currentSlide].classList.add('active');
-    
   };
   // let timer = setInterval(() => {
   //   move();
@@ -219,25 +230,31 @@ const slideMove = () => {
     currentSlide = e.target.textContent;
     timer = clearInterval();
     move();
-    
   });
-}
+};
 slideMove();
 
-window.addEventListener('load', () => {  
-    $slideWrap.querySelectorAll('.slide').forEach((slide, index) => {
-      $slideWrap.style.cssText = `transform: translate(${currentSlide * -100}%, 0);`
-      slide.style.cssText = `opacity: 1; transform: translate(${index * 100}%, 0)`;
-    })
-    $slide.forEach((_, index) => {
-      if (index === 0) {
-        $slideIndicatorWrap.innerHTML += `<button class="slide-button active">${index + 1}</button>`
-      } else {
-        $slideIndicatorWrap.innerHTML += `<button class="slide-button">${index + 1}</button>`
-      }
-      
-    })
-    // slideMove();
-    
+window.addEventListener('load', () => {
+  $slideWrap.querySelectorAll('.slide').forEach((slide, index) => {
+    $slideWrap.style.cssText = `transform: translate(${
+      currentSlide * -100
+    }%, 0);`;
+    slide.style.cssText = `opacity: 1; transform: translate(${
+      index * 100
+    }%, 0)`;
+  });
+  $slide.forEach((_, index) => {
+    if (index === 0) {
+      $slideIndicatorWrap.innerHTML += `<button class="slide-button active">${
+        index + 1
+      }</button>`;
+    } else {
+      $slideIndicatorWrap.innerHTML += `<button class="slide-button">${
+        index + 1
+      }</button>`;
+    }
+  });
+  // slideMove();
+
   // slide-wrap으로 움직이기, 맨앞에 맨뒤에 tag추가하기
-})
+});
