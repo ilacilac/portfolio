@@ -103,10 +103,12 @@ body {
 .wrap-1200 {
   width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
 }
 h2 {
   display: inline-block;
-  margin: 30px 0;
+  margin: 50px 0;
   font-size: 3.2rem;
   text-align: center;
   color: $font-color;
