@@ -120,11 +120,11 @@ main {
 
 /* === Common group === */
 .common-group {
-  display: flex;
-  flex-flow: row wrap;
-  height: 100vh;
+  // display: flex;
+  // flex-flow: row wrap;
+  // height: 100vh;
   text-align: center;
-  transition: all 1s;
+  // transition: all 1s;
   h2 {
     flex-basis: 100%;
     font-weight: 400;
@@ -150,8 +150,10 @@ main {
     display: flex;
     flex-flow: column wrap;
     flex-basis: 45%;
+    padding: 10px;
+    box-sizing: border-box;
     text-align: left;
-    line-height: 1.5;
+    line-height: 1.6;
     .introduce-title {
       font-family: 'Noto Sans KR', sans-serif;
       font-size: 2.4rem;
@@ -238,6 +240,8 @@ main {
     display: flex;
     flex-flow: row wrap;
     flex-basis: 55%;
+    padding: 10px;
+    box-sizing: border-box;
     .skill-text {
       text-align: left;
       width: 50%;
@@ -274,8 +278,8 @@ main {
       p {
         // display: none; // 임시
         margin-top: 10px;
-        font-size: 1.5rem;
-        line-height: 1.4;
+        font-size: 1.4rem;
+        line-height: 1.6;
         color: $font-color-black2;
       }
     }
@@ -286,6 +290,7 @@ main {
   position: relative;
   background: #f2f2f2;
   overflow: hidden;
+  // word-break: keep-all;
   &::before {
     content: '';
     display: block;
@@ -298,17 +303,19 @@ main {
   }
   .wrap-1200 {
     position: relative;
-    justify-content: center;
+    // justify-content: center;
     // align-content: flex-start;
-    align-content: space-between;
+    // align-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
     overflow: hidden;
+    height: 700px;
     .slide-wrap {
       position: absolute;
       top: 30%;
       width: 100%;
-      height: auto;
+      padding: 0 20px;
+
       &::after {
         content: '';
         display: block;
@@ -319,33 +326,22 @@ main {
         top: 0;
         left: 0;
         display: flex;
-        justify-content: center;
-        flex-basis: 100%;
         width: 100%;
-        // transform: translate(100%, 0);
-        // transition: all 5.5s;
-        figure {
-          margin: 0;
-        }
-        .work-text-wrap {
-          margin-left: 20px;
-
+        .work-image-wrap {
+          display: flex;
+          flex-direction: column;
+          width: 35%;
+          min-width: 350px;
           text-align: left;
-          font-size: 1.5rem;
-          line-height: 1.5;
-          strong {
-            display: block;
-            margin-top: 15px;
-            font-size: 2.4rem;
-            color: $point-color;
-          }
-          p {
-            margin-top: 7px;
-          }
-          ul {
-            margin-top: 7px;
+          figure {
+            margin: 0;
+            display: inline-block;
+            img {
+              max-width: 100%;
+            }
           }
           .time {
+            margin-top: 15px;
             font-weight: 600;
             &::before {
               content: '📅';
@@ -357,15 +353,43 @@ main {
               content: '🥅';
             }
           }
+        }
+
+        .work-text-wrap {
+          display: flex;
+          width: 60%;
+          text-align: left;
+          font-size: 1.5rem;
+          line-height: 1.6;
+          vertical-align: top;
+          word-break: keep-all;
+          strong {
+            display: block;
+            margin-top: 20px;
+            font-size: 2.4rem;
+            color: $point-color;
+          }
+          p {
+            margin-top: 7px;
+          }
+          ul {
+            margin-top: 7px;
+          }
+
           .work-text {
-            &:nth-child(1) {
-              strong {
-                margin-top: 0;
+            margin: 0 10px;
+            .paragraph {
+              &:nth-of-type(1) {
+                strong {
+                  margin-top: 0;
+                }
               }
             }
           }
           .w50p {
-            float: left;
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
             margin-top: 5px;
             box-sizing: border-box;
           }
@@ -378,7 +402,11 @@ main {
       }
     }
     .slide-indicator {
-      margin-bottom: 50px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      // margin-bottom: 50px;
       .slide-button {
         width: 25px;
         height: 25px;
@@ -449,7 +477,7 @@ main {
       .email-warning {
         font-size: 1.1rem;
         visibility: visible;
-        color: #cacadc;
+        color: #fff69d;
       }
     }
     :nth-of-type(3) {
@@ -536,6 +564,7 @@ main {
 
   .footer-bottom {
     margin-top: 35px;
+    padding-bottom: 50px;
     color: #bebebe;
   }
 }
