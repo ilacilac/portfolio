@@ -704,7 +704,7 @@ main .main-keyword {
 
 .footer .form-wrap .submit-button:disabled:hover::before {
   width: 0%;
-  height: 0%;
+  height: 100%;
 }
 
 .footer .form-wrap .thankyou_message {

@@ -538,7 +538,7 @@ main {
           cursor: not-allowed;
           &::before {
             width: 0%;
-            height: 0%;
+            height: 100%;
           }
         }
       }
