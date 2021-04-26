@@ -69,6 +69,9 @@ main {
   bottom: 20px;
   align-items: flex-end;
   width: 50px;
+  &:hover {
+    animation: 2s linear 0s infinite spiner;
+  }
 }
 .main-btn img {
   width: 100%;
@@ -80,8 +83,9 @@ main {
   right: 0;
   z-index: 100;
   width: 60px;
+  border-radius: 30px;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   ul {
     display: flex;
     height: 100%;
@@ -105,15 +109,15 @@ main {
     }
   }
   .about {
-    background: url('../images/chat.png') center no-repeat;
+    background: url('../images/chat_w.png') center no-repeat;
     background-size: 50%;
   }
   .works {
-    background: url('../images/code.png') center no-repeat;
+    background: url('../images/code_w.png') center no-repeat;
     background-size: 50%;
   }
   .contact {
-    background: url('../images/mail.png') center no-repeat;
+    background: url('../images/mail_w.png') center no-repeat;
     background-size: 50%;
   }
 }
@@ -298,7 +302,7 @@ main {
     height: 150px;
     position: absolute;
     top: -72px;
-    transform: rotate(2.5deg);
+    transform: rotate(3deg);
     background: #fff;
   }
   .wrap-1200 {
@@ -341,16 +345,36 @@ main {
             }
           }
           .time {
-            margin-top: 15px;
+            margin-top: 20px;
+            padding-left: 10px;
+            font-size: 1.6rem;
             font-weight: 600;
+            font-family: 'Noto Sans KR', sans-serif;
             &::before {
               content: '📅';
             }
           }
           .topic {
-            font-weight: 600;
+            margin-top: 8px;
+            padding-left: 10px;
+            font-size: 1.4rem;
+            font-weight: 400;
             &::before {
               content: '🥅';
+            }
+          }
+          .work-link-wrap {
+            margin-top: 10px;
+            padding-left: 10px;
+            a {
+              display: inline-block;
+              margin-right: 5px;
+              border-bottom: 1px solid $font-color-black3;
+              color: $font-color-black3;
+              font-size: 1.4rem;
+              &::before {
+                content: '🔗';
+              }
             }
           }
         }
@@ -358,6 +382,7 @@ main {
         .work-text-wrap {
           display: flex;
           width: 60%;
+          padding-left: 20px;
           text-align: left;
           font-size: 1.5rem;
           line-height: 1.6;
@@ -442,7 +467,7 @@ main {
     height: 150px;
     position: absolute;
     top: -72px;
-    transform: rotate(2.5deg);
+    transform: rotate(3deg);
     background: #f2f2f2;
   }
   .form-wrap {
@@ -610,6 +635,15 @@ main {
   }
   100% {
     transform: translate(-300%, 0);
+  }
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }
 @media screen and(min-width: 1024px) {
