@@ -78,6 +78,29 @@ main {
 }
 
 /* === Menu === */
+.menu-button {
+  display: none;
+  position: fixed;
+  top: -30px;
+  right: 0;
+  z-index: 100;
+  text-indent: -9999px;
+  width: 200px;
+  height: 300px;
+  background: url(../images/leaf.png) center no-repeat;
+  background-size: contain;
+}
+.menu-close-button {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  text-indent: -9999px;
+  width: 35px;
+  height: 35px;
+  background: url(../images/close_button.png) center no-repeat;
+  background-size: cover;
+}
 .menu-wrap {
   position: fixed;
   right: 0;
@@ -646,5 +669,204 @@ main {
     transform: rotateZ(360deg);
   }
 }
-@media screen and(min-width: 1024px) {
+
+@keyframes button-move {
+  0% {
+    top: -130px;
+  }
+  100% {
+    top: -90px;
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .introduce-wrap {
+    .introduce-text-wrap {
+      .introduce-title {
+        font-size: 2.2rem;
+      }
+      .introduce-subtitle {
+        margin-top: 40px;
+        font-size: 1.6rem;
+      }
+      .introduce-text {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      .introduce-link-wrap {
+        a {
+          padding: 15px 25px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .skill-text-wrap {
+      .skill-text {
+        strong {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+  // works
+  .works-wrap {
+    box-sizing: border-box;
+    padding: 0 20px;
+    .wrap-1200 {
+      .slide-wrap {
+        .slide {
+          .work-image-wrap {
+            min-width: 250px;
+          }
+          .work-text-wrap {
+            // width: 45%;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+  // form
+  .footer {
+    .form-wrap {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .common-group {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  // 메인메뉴
+  .menu-button {
+    display: block;
+    animation: 2s ease-in-out 0s infinite alternate button-move;
+  }
+  .menu-close-button {
+    display: block;
+    top: -100%;
+    &.active {
+      top: 25px;
+    }
+  }
+
+  .menu-wrap {
+    top: -100%;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    padding-top: 200px;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: $font-color-black2;
+    background: #ffffff;
+    ul {
+      justify-content: flex-start;
+    }
+    a {
+      display: block;
+      width: 100%;
+      margin: 30px 0;
+      height: auto;
+      font-size: 3.6rem;
+      text-indent: 0;
+    }
+    .about,
+    .works,
+    .contact {
+      background: none;
+    }
+    &.active {
+      top: 0;
+    }
+  }
+
+  .introduce-wrap {
+    .introduce-text-wrap {
+      .introduce-title {
+        font-size: 2rem;
+      }
+      .introduce-subtitle {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      .introduce-text {
+        margin-top: 40px;
+        font-size: 1.3rem;
+      }
+      .introduce-link-wrap {
+        margin-top: 20px;
+        a {
+          margin: 0;
+          padding: 15px 0;
+          width: 100%;
+          text-align: center;
+          font-size: 1.3rem;
+        }
+      }
+    }
+    .skill-text-wrap {
+      .skill-text {
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  // works
+  .works-wrap {
+    box-sizing: border-box;
+    padding: 0 20px;
+    .wrap-1200 {
+      .slide-wrap {
+        .slide {
+          .work-image-wrap {
+            min-width: 150px;
+          }
+          .work-text-wrap {
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+  // form
+  .footer {
+    .form-wrap {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .works-wrap {
+    .wrap-1200 {
+      .slide-wrap {
+        .slide {
+          .work-image-wrap {
+          }
+          .work-text-wrap {
+            flex-direction: column;
+            padding-left: 10px;
+            .work-text {
+              width: 90%;
+              .paragraph:not(:nth-child(1)) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // form
+  .footer {
+    .form-wrap {
+      width: 70%;
+    }
+  }
 }

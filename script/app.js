@@ -254,7 +254,23 @@ window.addEventListener('load', () => {
       }</button>`;
     }
   });
-  // slideMove();
 
-  // slide-wrap으로 움직이기, 맨앞에 맨뒤에 tag추가하기
+  // navigation
+  const $menuButton = document.querySelector('.menu-button');
+  const $menuCloseButton = document.querySelector('.menu-close-button');
+  const $menuWrap = document.querySelector('.menu-wrap');
+
+  $menuButton.addEventListener('click', () => {
+    $menuWrap.classList.add('active');
+    $menuCloseButton.classList.add('active');
+  });
+  $menuCloseButton.addEventListener('click', () => {
+    $menuWrap.classList.remove('active');
+    $menuCloseButton.classList.remove('active');
+  });
+  $menuWrap.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('menu-link')) return false;
+    $menuWrap.classList.remove('active');
+    $menuCloseButton.classList.remove('active');
+  });
 });

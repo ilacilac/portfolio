@@ -101,6 +101,31 @@ main .main-keyword {
 }
 
 /* === Menu === */
+.menu-button {
+  display: none;
+  position: fixed;
+  top: -30px;
+  right: 0;
+  z-index: 100;
+  text-indent: -9999px;
+  width: 200px;
+  height: 300px;
+  background: url(../images/leaf.png) center no-repeat;
+  background-size: contain;
+}
+
+.menu-close-button {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  text-indent: -9999px;
+  width: 35px;
+  height: 35px;
+  background: url(../images/close_button.png) center no-repeat;
+  background-size: cover;
+}
+
 .menu-wrap {
   position: fixed;
   right: 0;
@@ -852,5 +877,166 @@ main .main-keyword {
   100% {
     -webkit-transform: rotateZ(360deg);
             transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes button-move {
+  0% {
+    top: -130px;
+  }
+  100% {
+    top: -90px;
+  }
+}
+
+@keyframes button-move {
+  0% {
+    top: -130px;
+  }
+  100% {
+    top: -90px;
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .introduce-wrap .introduce-text-wrap .introduce-title {
+    font-size: 2.2rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-subtitle {
+    margin-top: 40px;
+    font-size: 1.6rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-text {
+    margin-top: 40px;
+    font-size: 1.4rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-link-wrap a {
+    padding: 15px 25px;
+    font-size: 1.4rem;
+  }
+  .introduce-wrap .skill-text-wrap .skill-text strong {
+    font-size: 2.2rem;
+  }
+  .works-wrap {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0 20px;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-image-wrap {
+    min-width: 250px;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap {
+    font-size: 1.3rem;
+  }
+  .footer .form-wrap {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .common-group h2 {
+    font-size: 3rem;
+  }
+  .menu-button {
+    display: block;
+    -webkit-animation: 2s ease-in-out 0s infinite alternate button-move;
+            animation: 2s ease-in-out 0s infinite alternate button-move;
+  }
+  .menu-close-button {
+    display: block;
+    top: -100%;
+  }
+  .menu-close-button.active {
+    top: 25px;
+  }
+  .menu-wrap {
+    top: -100%;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    padding-top: 200px;
+    border-radius: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #555555;
+    background: #ffffff;
+  }
+  .menu-wrap ul {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .menu-wrap a {
+    display: block;
+    width: 100%;
+    margin: 30px 0;
+    height: auto;
+    font-size: 3.6rem;
+    text-indent: 0;
+  }
+  .menu-wrap .about,
+  .menu-wrap .works,
+  .menu-wrap .contact {
+    background: none;
+  }
+  .menu-wrap.active {
+    top: 0;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-title {
+    font-size: 2rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-subtitle {
+    margin-top: 40px;
+    font-size: 1.4rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-text {
+    margin-top: 40px;
+    font-size: 1.3rem;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-link-wrap {
+    margin-top: 20px;
+  }
+  .introduce-wrap .introduce-text-wrap .introduce-link-wrap a {
+    margin: 0;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  .introduce-wrap .skill-text-wrap .skill-text p {
+    font-size: 1.3rem;
+  }
+  .works-wrap {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0 20px;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-image-wrap {
+    min-width: 150px;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap {
+    width: 55%;
+  }
+  .footer .form-wrap {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 10px;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap .work-text {
+    width: 90%;
+  }
+  .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap .work-text .paragraph:not(:nth-child(1)) {
+    display: none;
+  }
+  .footer .form-wrap {
+    width: 70%;
   }
 }
