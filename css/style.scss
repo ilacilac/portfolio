@@ -513,14 +513,17 @@ main {
           width: 0;
           height: 100%;
           transition: all 0.7s;
-          opacity: 0.5;
-          background: #ffffff;
+          opacity: 0.2;
         }
         &:hover {
-          // color: #ffffff;
-          font-weight: 800;
+          transition: all 0.7s;
+          font-weight: 400;
           &::before {
             content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
             display: block;
             width: 100%;
             height: 100%;
@@ -530,8 +533,13 @@ main {
       }
       &:disabled {
         opacity: 0.3;
+        transition: none;
         &:hover {
           cursor: not-allowed;
+          &::before {
+            width: 0%;
+            height: 0%;
+          }
         }
       }
 
