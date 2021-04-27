@@ -1120,7 +1120,7 @@ main .main-keyword {
     padding: 0;
   }
   .works-wrap .wrap-1200 {
-    height: 780px;
+    height: 900px;
   }
   .works-wrap .wrap-1200 .slide-wrap {
     top: 20%;
@@ -1162,6 +1162,9 @@ main .main-keyword {
   }
   .works-wrap .wrap-1200 .slide-wrap .slide .work-text-wrap .work-text .paragraph:not(:nth-child(1)) {
     display: none;
+  }
+  .works-wrap .wrap-1200 .slide-indicator {
+    bottom: 35px;
   }
   .footer .form-wrap {
     width: 85%;

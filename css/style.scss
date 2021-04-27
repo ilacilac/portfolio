@@ -938,7 +938,7 @@ main {
   .works-wrap {
     padding: 0;
     .wrap-1200 {
-      height: 780px;
+      height: 900px;
       .slide-wrap {
         top: 20%;
         padding: 0;
@@ -971,6 +971,9 @@ main {
             }
           }
         }
+      }
+      .slide-indicator {
+        bottom: 35px;
       }
     }
   }
