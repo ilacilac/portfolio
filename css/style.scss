@@ -90,7 +90,7 @@ main {
   display: none;
   position: fixed;
   top: -30px;
-  right: -3 0px;
+  right: -30px;
   z-index: 100;
   text-indent: -9999px;
   width: 150px;
@@ -802,7 +802,6 @@ main {
     display: block;
     animation: 2s ease-in-out 0s infinite alternate button-move;
     transition: all 0.5s;
-    opacity: 1;
     &.active {
       top: -90px;
       width: 75px;

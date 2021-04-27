@@ -253,6 +253,7 @@ window.addEventListener('load', () => {
         index + 1
       }</button>`;
     }
+    $menuButton.style.cssText = 'opacity: 1';
   });
 
   $menuButton.addEventListener('click', () => {
