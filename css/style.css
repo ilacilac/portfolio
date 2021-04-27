@@ -1094,7 +1094,7 @@ main .main-keyword {
 @media screen and (max-width: 576px) {
   main h1 {
     padding: 0 2rem;
-    font-size: 2.6rem;
+    font-size: 1.98rem;
   }
   .introduce-wrap .introduce-text-wrap {
     -ms-flex-preferred-size: 100%;
