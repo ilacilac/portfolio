@@ -2,6 +2,11 @@ const $main = document.querySelector('main');
 const $mainBg = document.querySelector('.main-bg');
 const $body = document.querySelector('body');
 
+// navigation
+const $menuButton = document.querySelector('.menu-button');
+const $menuCloseButton = document.querySelector('.menu-close-button');
+const $menuWrap = document.querySelector('.menu-wrap');
+
 const mainBg = () => {
   let startX = 0;
   let startY = 0;
@@ -46,6 +51,8 @@ const sectionsOffsetTop = Array.from($sections).map((v) => {
 });
 
 const windowHeight = window.innerHeight;
+const $introduceWrap = document.querySelector('.introduce-wrap');
+// const $main = document.querySelector('main');
 let moveScroll = 0;
 
 let scrollTopDefault = 0;
@@ -61,37 +68,37 @@ const moveSection = (e) => {
     document.documentElement.scrollTop ||
     document.body.scrollTop;
 
+  // menu button control
+  console.log(newValue);
+  console.log($main.clientHeight);
+  if ($main.clientHeight < newValue) {
+    $menuButton.classList.add('active');
+  } else {
+    $menuButton.classList.remove('active');
+  }
+
   // scroll down
-  // if (oldValue - newValue < 0) {
-  //   // console.log('scroll down');
-  //   for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-  //     if (
-  //       sectionsOffsetTop[i] <= scrollTop &&
-  //       sectionsOffsetTop[i + 1] >= scrollTop
-  //     ) {
-  //       // console.log(i);
-  //       $sections[i].classList.add('active');
-  //     } else {
-  //       $sections[i].classList.remove('active');
-  //     }
-  //   }
-  // }
-  // // scroll top
-  // if (oldValue - newValue > 0) {
-  //   // console.log('scroll up');
-  //   for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-  //     if (
-  //       sectionsOffsetTop[i] <= scrollTop &&
-  //       sectionsOffsetTop[i + 1] >= scrollTop
-  //     ) {
-  //       // window.scrollTo({
-  //       //   top: sectionsOffsetTop[i],
-  //       //   left: 0,
-  //       //   behavior: "smooth"
-  //       // })
-  //     }
-  //   }
-  // }
+  if (oldValue - newValue < 0) {
+    console.log('scroll down');
+  }
+  // scroll top
+  if (oldValue - newValue > 0) {
+    // console.log('scroll up');
+    for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
+      if (
+        sectionsOffsetTop[i] <= scrollTop &&
+        sectionsOffsetTop[i + 1] >= scrollTop
+      ) {
+        // window.scrollTo({
+        //   top: sectionsOffsetTop[i],
+        //   left: 0,
+        //   behavior: "smooth"
+        // })
+        console.log('up');
+        console.log(i);
+      }
+    }
+  }
 
   oldValue = newValue;
 };
@@ -116,9 +123,9 @@ const process = debounce((e) => moveSection(e));
 document.addEventListener('scroll', process);
 
 // Menu Scroll Event
-const $menuWrap = document.querySelector('.menu-wrap');
+// const $menuWrap = document.querySelector('.menu-wrap');
 const $mainBtn = document.querySelector('.main-btn');
-const $introduceWrap = document.querySelector('.introduce-wrap');
+// const $introduceWrap = document.querySelector('.introduce-wrap');
 $menuWrap.addEventListener('click', (e) => {
   if (e.target.classList.contains('github-link')) return false;
   e.preventDefault();
@@ -247,11 +254,6 @@ window.addEventListener('load', () => {
       }</button>`;
     }
   });
-
-  // navigation
-  const $menuButton = document.querySelector('.menu-button');
-  const $menuCloseButton = document.querySelector('.menu-close-button');
-  const $menuWrap = document.querySelector('.menu-wrap');
 
   $menuButton.addEventListener('click', () => {
     $menuWrap.classList.add('active');

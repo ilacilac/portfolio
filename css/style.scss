@@ -90,7 +90,7 @@ main {
   display: none;
   position: fixed;
   top: -30px;
-  right: 0;
+  right: -30px;
   z-index: 100;
   text-indent: -9999px;
   width: 150px;
@@ -800,6 +800,13 @@ main {
   .menu-button {
     display: block;
     animation: 2s ease-in-out 0s infinite alternate button-move;
+    transition: all 0.5s;
+    &.active {
+      top: -90px;
+      width: 75px;
+      height: 200px;
+      animation: none;
+    }
   }
   .menu-close-button {
     display: block;
