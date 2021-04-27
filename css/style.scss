@@ -2,6 +2,14 @@
 
 body {
   transition: all 1s;
+  &.active {
+    overflow: hidden;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+  }
 }
 
 /* === MAIN === */
@@ -24,7 +32,7 @@ main {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(#fff, #423148);
+  background: $sub-color;
   h1 {
     position: absolute;
     color: $font-color;
@@ -85,8 +93,8 @@ main {
   right: 0;
   z-index: 100;
   text-indent: -9999px;
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 250px;
   background: url(../images/leaf.png) center no-repeat;
   background-size: contain;
 }
@@ -102,6 +110,9 @@ main {
   background-size: cover;
 }
 .menu-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   right: 0;
   z-index: 100;
@@ -142,6 +153,24 @@ main {
   .contact {
     background: url('../images/mail_w.png') center no-repeat;
     background-size: 50%;
+  }
+  .nav-footer {
+    display: none;
+    a {
+      display: block;
+      margin: 0 auto;
+      width: 30px;
+      height: 30px;
+      text-indent: -9999px;
+      background: url(../images/github.png) center no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+    }
+    p {
+      margin: 10px 0 20px;
+      font-size: 1.2rem;
+      color: $font-color-black3;
+    }
   }
 }
 
@@ -672,10 +701,37 @@ main {
 
 @keyframes button-move {
   0% {
-    top: -130px;
+    top: -100px;
   }
   100% {
-    top: -90px;
+    top: -70px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: -100%;
+  }
+  // 20% {
+  //   top: 0%;
+  // }
+  // 40% {
+  //   top: -15%;
+  // }
+  // 60% {
+  //   top: 0%;
+  // }
+  // 70% {
+  //   top: -10%;
+  // }
+  // 80% {
+  //   top: 0%;
+  // }
+  // 90% {
+  //   top: -4%;
+  // }
+  100% {
+    top: 0;
   }
 }
 
@@ -748,8 +804,11 @@ main {
   .menu-close-button {
     display: block;
     top: -100%;
+    opacity: 0;
     &.active {
       top: 25px;
+      opacity: 1;
+      transition: all 0.3s linear 0s;
     }
   }
 
@@ -763,6 +822,9 @@ main {
     box-sizing: border-box;
     color: $font-color-black2;
     background: #ffffff;
+    .nav-footer {
+      display: block;
+    }
     ul {
       justify-content: flex-start;
     }
@@ -780,7 +842,8 @@ main {
       background: none;
     }
     &.active {
-      top: 0;
+      // top: 0;
+      animation: 0.5s ease-in-out 0s forwards bounce;
     }
   }
 
@@ -843,17 +906,65 @@ main {
 }
 
 @media screen and (max-width: 576px) {
+  main {
+    h1 {
+      padding: 0 2rem;
+      font-size: 3rem;
+    }
+  }
+  // About me
+  .introduce-wrap {
+    .introduce-text-wrap {
+      flex-basis: 100%;
+      .introduce-subtitle {
+        font-size: 1.8rem;
+      }
+      .introduce-link-wrap {
+        margin-top: 50px;
+        a {
+          width: 45%;
+        }
+      }
+    }
+    .skill-text-wrap {
+      flex-basis: 100%;
+      .skill-text {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  // Works
   .works-wrap {
+    padding: 0;
     .wrap-1200 {
+      height: 780px;
       .slide-wrap {
+        top: 20%;
+        padding: 0;
         .slide {
+          flex-direction: column;
+          align-items: center;
           .work-image-wrap {
+            width: 70%;
+            text-align: center;
+            figure {
+              width: 200px;
+              margin: 0 auto;
+            }
           }
+
           .work-text-wrap {
-            flex-direction: column;
+            width: 100%;
+            flex-direction: row;
             padding-left: 10px;
+            box-sizing: border-box;
+            strong {
+              font-size: 2rem;
+            }
             .work-text {
-              width: 90%;
+              width: 50%;
+              margin-top: 50px;
               .paragraph:not(:nth-child(1)) {
                 display: none;
               }
@@ -866,7 +977,13 @@ main {
   // form
   .footer {
     .form-wrap {
-      width: 70%;
+      width: 85%;
+      .form-group {
+        label {
+          font-size: 1.4rem;
+          white-space: nowrap;
+        }
+      }
     }
   }
 }

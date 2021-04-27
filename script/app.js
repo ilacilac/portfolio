@@ -123,6 +123,7 @@ const $menuWrap = document.querySelector('.menu-wrap');
 const $mainBtn = document.querySelector('.main-btn');
 const $introduceWrap = document.querySelector('.introduce-wrap');
 $menuWrap.addEventListener('click', (e) => {
+  if (e.target.classList.contains('github-link')) return false;
   e.preventDefault();
   if (e.target.classList.contains('menu-link')) {
     const sectionId = e.target.getAttribute('href');
@@ -263,14 +264,26 @@ window.addEventListener('load', () => {
   $menuButton.addEventListener('click', () => {
     $menuWrap.classList.add('active');
     $menuCloseButton.classList.add('active');
+    $body.classList.add('active');
   });
   $menuCloseButton.addEventListener('click', () => {
     $menuWrap.classList.remove('active');
     $menuCloseButton.classList.remove('active');
+    $body.classList.remove('active');
   });
   $menuWrap.addEventListener('click', (e) => {
     if (!e.target.classList.contains('menu-link')) return false;
     $menuWrap.classList.remove('active');
     $menuCloseButton.classList.remove('active');
+    $body.classList.remove('active');
+  });
+
+  $menuWrap.addEventListener('keydown', (e) => {
+    const focusEle = document.activeElement;
+    if (!e.keycode === 9) return false;
+    if ($menuCloseButton === focusEle) {
+      e.preventDefault();
+      $menuWrap.querySelector('ul li:first-child a').focus();
+    }
   });
 });
