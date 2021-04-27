@@ -97,6 +97,7 @@ main {
   height: 250px;
   background: url(../images/leaf.png) center no-repeat;
   background-size: contain;
+  opacity: 0;
 }
 .menu-close-button {
   display: none;
@@ -801,6 +802,7 @@ main {
     display: block;
     animation: 2s ease-in-out 0s infinite alternate button-move;
     transition: all 0.5s;
+    opacity: 1;
     &.active {
       top: -90px;
       width: 75px;

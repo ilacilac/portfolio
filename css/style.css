@@ -117,13 +117,14 @@ main .main-keyword {
   display: none;
   position: fixed;
   top: -30px;
-  right: -30px;
+  right: -3 0px;
   z-index: 100;
   text-indent: -9999px;
   width: 150px;
   height: 250px;
   background: url(../images/leaf.png) center no-repeat;
   background-size: contain;
+  opacity: 0;
 }
 
 .menu-close-button {
@@ -1004,6 +1005,7 @@ main .main-keyword {
             animation: 2s ease-in-out 0s infinite alternate button-move;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    opacity: 1;
   }
   .menu-button.active {
     top: -90px;
