@@ -52,16 +52,14 @@ const sectionsOffsetTop = Array.from($sections).map((v) => {
 
 const windowHeight = window.innerHeight;
 const $introduceWrap = document.querySelector('.introduce-wrap');
-// const $main = document.querySelector('main');
+
 let moveScroll = 0;
 
 let scrollTopDefault = 0;
 let scrollPage = 1;
-// console.log($sections);
 
 let oldValue = 0;
-const moveSection = (e) => {
-  let { scrollTop } = e.target.scrollingElement;
+const moveSection = () => {
   const newValue =
     window.scrollY ||
     window.pageYOffset ||
@@ -69,35 +67,10 @@ const moveSection = (e) => {
     document.body.scrollTop;
 
   // menu button control
-  console.log(newValue);
-  console.log($main.clientHeight);
   if ($main.clientHeight < newValue) {
     $menuButton.classList.add('active');
   } else {
     $menuButton.classList.remove('active');
-  }
-
-  // scroll down
-  if (oldValue - newValue < 0) {
-    console.log('scroll down');
-  }
-  // scroll top
-  if (oldValue - newValue > 0) {
-    // console.log('scroll up');
-    for (let i = 0; i <= sectionsOffsetTop.length - 1; i++) {
-      if (
-        sectionsOffsetTop[i] <= scrollTop &&
-        sectionsOffsetTop[i + 1] >= scrollTop
-      ) {
-        // window.scrollTo({
-        //   top: sectionsOffsetTop[i],
-        //   left: 0,
-        //   behavior: "smooth"
-        // })
-        console.log('up');
-        console.log(i);
-      }
-    }
   }
 
   oldValue = newValue;
@@ -123,9 +96,8 @@ const process = debounce((e) => moveSection(e));
 document.addEventListener('scroll', process);
 
 // Menu Scroll Event
-// const $menuWrap = document.querySelector('.menu-wrap');
 const $mainBtn = document.querySelector('.main-btn');
-// const $introduceWrap = document.querySelector('.introduce-wrap');
+
 $menuWrap.addEventListener('click', (e) => {
   if (e.target.classList.contains('github-link')) return false;
   e.preventDefault();
